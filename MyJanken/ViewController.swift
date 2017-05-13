@@ -21,5 +21,27 @@ class ViewController: UIViewController {
   }
 
 
+  @IBOutlet weak var answerImageView: UIImageView!
+  @IBOutlet weak var answerLabel: UILabel!
+  
+  // じゃんけん(数字)
+  var answerNumber:UInt32 = 0
+  @IBAction func shuffleAction(_ sender: Any) {
+    answerNumber = arc4random_uniform(3)
+    
+    if answerNumber == 0 {
+      answerLabel.text = "グー"
+      answerImageView.image = UIImage(named: "gu")
+    }
+    else if answerNumber == 1 {
+      answerLabel.text = "チョキ"
+      answerImageView.image = UIImage(named: "choki")
+    }
+    else if answerNumber == 2 {
+      answerLabel.text = "パー"
+      answerImageView.image = UIImage(named: "pa")
+    }
+    
+  }
 }
 
