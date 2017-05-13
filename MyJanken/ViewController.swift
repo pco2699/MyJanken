@@ -26,8 +26,18 @@ class ViewController: UIViewController {
   
   // じゃんけん(数字)
   var answerNumber:UInt32 = 0
+
   @IBAction func shuffleAction(_ sender: Any) {
-    answerNumber = arc4random_uniform(3)
+    
+    var newAnswerNumber:UInt32 = 0
+    
+    repeat {
+      
+      newAnswerNumber = arc4random_uniform(3)
+      
+    } while answerNumber == newAnswerNumber
+    
+    answerNumber = newAnswerNumber
     
     if answerNumber == 0 {
       answerLabel.text = "グー"
